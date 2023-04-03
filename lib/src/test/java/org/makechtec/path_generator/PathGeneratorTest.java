@@ -16,12 +16,17 @@ class PathGeneratorTest {
     }
 
     @Test
-    void jarPath() throws URISyntaxException {
+    void testJarPath() throws URISyntaxException {
         assertNotNull(pathGenerator.jarPath(PathGeneratorTest.class));
     }
 
     @Test
-    void resourcePath() {
+    void testResourcePath() {
         assertNotNull(pathGenerator.resourcePath(PathGeneratorTest.class, "test.txt"));
+    }
+
+    @Test
+    void testUserDir() {
+        assertNotNull(pathGenerator.userDir());
     }
 }

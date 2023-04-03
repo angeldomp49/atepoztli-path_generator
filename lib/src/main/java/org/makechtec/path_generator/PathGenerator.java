@@ -30,4 +30,8 @@ public class PathGenerator {
         return urlResource.getPath();
     }
 
+    public String userDir(){
+        return System.getProperty("user.dir");
+    }
+
 }
