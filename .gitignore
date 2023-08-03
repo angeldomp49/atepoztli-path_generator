@@ -7,3 +7,5 @@ lib/build/
 app/build/
 *.jar
 *.zip
+
+.idea/
