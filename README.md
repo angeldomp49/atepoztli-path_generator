@@ -23,3 +23,10 @@ Gradle
     String resourceDir = pathGenerator.resourcePath(PathGeneratorTest.class, "test.txt");
 
     String userDir = pathGenerator.userDir();
+
+
+## History changes ##
+
+2.0.0 same as 1.2.0 but upgrade to gradle 8.2.1
+
+1.2.0 latest previous version stable release
