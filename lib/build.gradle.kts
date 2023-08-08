@@ -47,7 +47,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "org.makechtec.software"
             artifactId = "path_generator"
-            version = "2.0.0"
+            version = "2.0.2"
 
             from(components["java"])
         }
