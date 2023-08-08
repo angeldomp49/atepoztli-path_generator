@@ -3,9 +3,5 @@
 
 # Ignore Gradle build output directory
 build
-lib/build/
-app/build/
-*.jar
-*.zip
-
 .idea/
+*.jar
