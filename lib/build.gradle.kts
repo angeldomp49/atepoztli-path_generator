@@ -10,11 +10,25 @@ plugins {
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
     `maven-publish`
+    jacoco
 }
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+
+    maven {
+        isAllowInsecureProtocol = true
+        url = uri("http://makechtec.online:8080/yolotli/package")
+        credentials {
+            username = System.getenv("MAKECH_USERNAME")
+            password = System.getenv("MAKECH_PASSWORD")
+        }
+        authentication {
+            create<BasicAuthentication>("basic")
+        }
+    }
+
 }
 
 dependencies {
@@ -47,9 +61,37 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "org.makechtec.software"
             artifactId = "path_generator"
-            version = "2.0.3"
+            version = "2.0.4"
 
             from(components["java"])
         }
     }
+
+    repositories {
+
+        maven {
+            isAllowInsecureProtocol = true
+            url = uri("http://makechtec.online:8080/yolotli/package")
+            credentials {
+                username = System.getenv("MAKECH_USERNAME")
+                password = System.getenv("MAKECH_PASSWORD")
+            }
+            authentication {
+                create<BasicAuthentication>("basic")
+            }
+        }
+
+    }
+
+}
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport)
+}
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+}
+
+jacoco {
+    toolVersion = "0.8.9"
 }
